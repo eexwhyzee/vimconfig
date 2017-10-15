@@ -8,8 +8,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -33,6 +31,7 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
+" Code Folding
 Plugin 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview=1
 
@@ -58,22 +57,26 @@ highlight BadWhitespace ctermbg=red guibg=darkred
 " Flag extraneous whitespaces
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+" Python Indenting
 Plugin 'vim-scripts/indentpython.vim'
 
+" Set encoding for python
 set encoding=utf-8
 
+" Auto complete plugin 
 Bundle 'Valloric/YouCompleteMe'
-
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_server_python_interpreter='python3'
+
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" Syntax/PEP-008 Checking
 Plugin 'scrooloose/syntastic'
-
 Plugin 'nvie/vim-flake8'
-
 let python_highlight_all=1
 syntax on
 
+" Themes 
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 
@@ -84,32 +87,29 @@ else
 	colorscheme zenburn
 endif
 
+" Toggle for light/dark theme
 call togglebg#map("<F5>")
 
+" File browsing 
 Plugin 'scrooloose/nerdtree'
-
-Plugin 'jistr/vim-nerdtree-tabs'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Super searching 
 Plugin 'kien/ctrlp.vim'
 
+" Add line numbering
 set nu
 
-
+" Git Integration
 Plugin 'tpope/vim-fugitive'
 
+" Powerline status bar
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-set clipboard=unnamedplus
-
-" Always show statusline
 set laststatus=2
-
-"Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
-let g:ycm_server_python_interpreter = 'python3'
-
+" System clipboard
+set clipboard=unnamedplus
 
 
