@@ -112,4 +112,7 @@ set t_Co=256
 " System clipboard
 set clipboard=unnamedplus
 
-
+" Markdown preview
+Plugin 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
